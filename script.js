@@ -251,8 +251,20 @@ function setupEventListeners() {
     
     // Category cards click
     document.addEventListener('click', (e) => {
-        if (e.target.closest('.category-card')) {
-            const categoryKey = e.target.closest('.category-card').getAttribute('data-category');
+        let categoryCard = null;
+        let target = e.target;
+        
+        // Traverse up the DOM to find category card
+        while (target && target !== document) {
+            if (target.classList && target.classList.contains('category-card')) {
+                categoryCard = target;
+                break;
+            }
+            target = target.parentNode;
+        }
+        
+        if (categoryCard) {
+            const categoryKey = categoryCard.getAttribute('data-category');
             
             // Update filter
             currentFilter = categoryKey;
@@ -273,14 +285,38 @@ function setupEventListeners() {
 
     // Tool card animations
     document.addEventListener('mouseenter', (e) => {
-        if (e.target.closest('.tool-card')) {
-            e.target.closest('.tool-card').style.transform = 'translateY(-10px)';
+        let toolCard = null;
+        let target = e.target;
+        
+        // Traverse up the DOM to find tool card
+        while (target && target !== document) {
+            if (target.classList && target.classList.contains('tool-card')) {
+                toolCard = target;
+                break;
+            }
+            target = target.parentNode;
+        }
+        
+        if (toolCard) {
+            toolCard.style.transform = 'translateY(-10px)';
         }
     }, true);
 
     document.addEventListener('mouseleave', (e) => {
-        if (e.target.closest('.tool-card')) {
-            e.target.closest('.tool-card').style.transform = 'translateY(-5px)';
+        let toolCard = null;
+        let target = e.target;
+        
+        // Traverse up the DOM to find tool card
+        while (target && target !== document) {
+            if (target.classList && target.classList.contains('tool-card')) {
+                toolCard = target;
+                break;
+            }
+            target = target.parentNode;
+        }
+        
+        if (toolCard) {
+            toolCard.style.transform = 'translateY(-5px)';
         }
     }, true);
 }

@@ -147,15 +147,70 @@ body {
 .nav-brand {
     display: flex;
     align-items: center;
+    text-decoration: none;
+}
+
+/* Brand Logo Styles */
+.brand-logo {
+    display: flex;
+    align-items: center;
     gap: var(--spacing-sm);
+    transition: var(--transition-normal);
+}
+
+.logo-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(0, 200, 255, 0.1));
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.logo-icon i {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    z-index: 2;
+    transition: var(--transition-normal);
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--primary-green), transparent 70%);
+    opacity: 0;
+    border-radius: var(--radius-md);
+    transition: opacity var(--transition-normal);
+}
+
+.brand-text {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-green);
+    letter-spacing: 1px;
     font-family: var(--font-mono);
+    text-shadow: 0 0 10px var(--primary-green-glow);
 }
 
-.nav-brand i {
-    font-size: 1.8rem;
+.brand-logo:hover .logo-glow {
+    opacity: 0.3;
+}
+
+.brand-logo:hover .logo-icon {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-glow);
+}
+
+.brand-logo:hover .brand-text {
+    text-shadow: 0 0 15px var(--primary-green-glow);
 }
 
 .nav-menu {
@@ -743,18 +798,21 @@ body {
 }
 
 .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-green);
     margin-bottom: var(--spacing-md);
-    font-family: var(--font-mono);
 }
 
-.footer-logo i {
-    font-size: 1.8rem;
+.footer-logo .brand-logo {
+    gap: var(--spacing-sm);
+}
+
+.footer-logo .logo-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.footer-logo .brand-text {
+    font-size: 1.5rem;
+    margin-bottom: 0;
 }
 
 .footer-description {
