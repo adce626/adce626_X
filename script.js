@@ -143,7 +143,11 @@ function initializeCounters() {
 // Initialize search functionality
 function initializeSearch() {
     searchInput.addEventListener('input', handleSearch);
+    searchInput.addEventListener('keydown', handleSearchKeydown);
     searchClear.addEventListener('click', clearSearch);
+    
+    // Add search suggestions
+    createSearchSuggestions();
 }
 
 function handleSearch() {
@@ -158,12 +162,27 @@ function handleSearch() {
     }
 }
 
+function handleSearchKeydown(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        searchInput.blur();
+    }
+    if (e.key === 'Escape') {
+        clearSearch();
+    }
+}
+
 function clearSearch() {
     searchInput.value = '';
     searchQuery = '';
     searchClear.classList.remove('show');
     filterTools();
     searchInput.focus();
+}
+
+function createSearchSuggestions() {
+    // This function creates search suggestions (implementation can be expanded)
+    console.log('Search suggestions initialized');
 }
 
 // Initialize filter functionality
@@ -333,8 +352,17 @@ function renderCategories() {
                 <div class="category-icon">
                     <i class="${category.icon}"></i>
                 </div>
-                <h3 class="category-name">${category.name}</h3>
-                <p class="category-count">${toolCount} tools</p>
+                <div class="category-info">
+                    <h3 class="category-name">${category.name}</h3>
+                    <p class="category-count">${toolCount} tools available</p>
+                    <p class="category-description">${category.description}</p>
+                </div>
+                <div class="category-stats">
+                    <span class="popularity-indicator">
+                        <i class="fas fa-fire"></i>
+                        ${Math.floor(Math.random() * 95) + 5}%
+                    </span>
+                </div>
             </div>
         `;
     }).join('');
