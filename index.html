@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADCE626 - Elite Bug Bounty Tools Platform</title>
+    <meta name="description" content="Professional bug bounty tools platform featuring categorized security tools for penetration testing and vulnerability research">
+    <meta name="keywords" content="bug bounty, security tools, penetration testing, vulnerability research, cybersecurity">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">ADCE626</div>
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Initializing Security Arsenal...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>ADCE626</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#recon" class="nav-link" data-section="recon">
+                    <i class="fas fa-search"></i>
+                    <span>Recon</span>
+                </a>
+                <a href="#exploitation" class="nav-link" data-section="exploitation">
+                    <i class="fas fa-bug"></i>
+                    <span>Exploitation</span>
+                </a>
+                <a href="#fuzzing" class="nav-link" data-section="fuzzing">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fuzzing</span>
+                </a>
+                <a href="#miscellaneous" class="nav-link" data-section="miscellaneous">
+                    <i class="fas fa-tools"></i>
+                    <span>Misc</span>
+                </a>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">ELITE</span>
+                    <span class="title-line">BUG BOUNTY</span>
+                    <span class="title-line highlight">ARSENAL</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover, explore, and master the most powerful security tools 
+                    for professional penetration testing and vulnerability research.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-count="200">0</span>
+                        <span class="stat-label">Security Tools</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="15">0</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search for security tools...">
+                    <button class="search-clear" id="search-clear">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="all">
+                        <i class="fas fa-globe"></i>
+                        All Tools
+                    </button>
+                    <button class="filter-btn" data-category="subdomain-enumeration">
+                        <i class="fas fa-sitemap"></i>
+                        Subdomain
+                    </button>
+                    <button class="filter-btn" data-category="port-scanning">
+                        <i class="fas fa-network-wired"></i>
+                        Port Scan
+                    </button>
+                    <button class="filter-btn" data-category="content-discovery">
+                        <i class="fas fa-folder-open"></i>
+                        Content Discovery
+                    </button>
+                    <button class="filter-btn" data-category="exploitation">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Exploitation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Grid Section -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Security Arsenal</h2>
+                <p class="section-subtitle">Comprehensive collection of professional security tools</p>
+            </div>
+            
+            <div class="tools-grid" id="tools-grid">
+                <!-- Tools will be dynamically loaded here -->
+            </div>
+            
+            <div class="load-more-container">
+                <button class="load-more-btn" id="load-more">
+                    <span>Load More Tools</span>
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tool Categories</h2>
+                <p class="section-subtitle">Organized by security testing phases</p>
+            </div>
+            
+            <div class="categories-grid" id="categories-grid">
+                <!-- Categories will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>ADCE626</span>
+                    </div>
+                    <p class="footer-description">
+                        Elite bug bounty tools platform for professional security researchers 
+                        and penetration testers worldwide.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Platform</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#tools">Tools</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Community</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Security</h3>
+                        <ul>
+                            <li><a href="#">Bug Reports</a></li>
+                            <li><a href="#">Security Policy</a></li>
+                            <li><a href="#">Responsible Disclosure</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ADCE626 Platform. Elite Security Arsenal.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
